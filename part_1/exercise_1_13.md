@@ -1,4 +1,4 @@
-# Exercise 1.13: Hello, BAckend!
+# Exercise 1.13: Hello, Backend!
 
 ## backend.base file
 

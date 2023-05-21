@@ -14,7 +14,7 @@ First I needed to copy the repository with: ``git clone https://github.com/docke
 ``RUN ./mvnw package`` <br/>
 ``CMD ["java", "-jar", "./target/docker-example-1.1.3.jar"]``
 
-Then the ```spring.base`` script was run with the command: ``docker build . -f spring.base -t spring``:
+Then the ``spring.base`` script was run with the command: ``docker build . -f spring.base -t spring``:
 
 ![Output Exercise 1.11 pt 1](image/Exercise_1_11_Spring_pt1.png)
 
@@ -22,6 +22,6 @@ After the ``spring.base`` file was ran, then it was followed up with the command
 
 ![Output Exercise 1.11 pt 2](image/Exercise_1_11_Spring_pt2.png)
 
-When going to ```localhost:8080/press`` and press the "Press here" button, it gave the message "Success":
+When going to ``localhost:8080/press`` and press the "Press here" button, it gave the message "Success":
 
 ![Success](image/Exercise_1_11_Spring_pt3.png)
