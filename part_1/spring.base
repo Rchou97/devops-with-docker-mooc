@@ -1,0 +1,15 @@
+# We need Java 8
+FROM openjdk:8 
+
+EXPOSE 8080 
+
+WORKDIR /usr/src/app
+
+COPY . . 
+
+# Could not find mvnw package, so needed to apply the code below to run it 
+RUN apt-get update && apt-get install -y dos2unix && find . -type f -print0 | xargs -0 dos2unix
+
+RUN ./mvnw package
+
+CMD ["java", "-jar", "./target/docker-example-1.1.3.jar"]
