@@ -1,0 +1,20 @@
+version: '3.8'
+
+services: 
+    backend-base: 
+        image: backend
+        ports:
+            - 8080:8080
+        environment:
+            REDIS_HOST: redis-base
+        container_name: backend
+
+    frontend-base: 
+        image: frontend
+        ports:
+            - 5000:5000
+        container_name: frontend
+
+    redis-base:
+        image: redis 
+        container_name: redis-base 
