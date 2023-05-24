@@ -1,3 +1,12 @@
+# Exercise 2.6
+
+## Docker Compose file
+
+We are reusing the scripts again that was constructed in part 1. In this case the images ``backend.base`` and ``frontend.base``.  
+
+In this case, we will adjust the environments in the ``backend-base`` and setup the ``postgres`` service. It resulted in the following:
+
+```yml
 version: '3.8'
 
 services: 
@@ -9,11 +18,8 @@ services:
             REDIS_HOST: redis-base
             POSTGRES_HOST: database
             POSTGRES_USER: postgres
-            POSTGRES_PASSWORD: postgres
+            POSTGRES_PASSWORD: exercise_2_6
             POSTGRES_DATABASE: postgres
-        depends_on:
-            - database
-            - redis-base
         container_name: backend
 
     frontend-base: 
@@ -30,15 +36,10 @@ services:
         image: postgres:alpine
         restart: unless-stopped 
         environment: 
-            POSTGRES_PASSWORD: postgres
-        container_name: postgres
-    
-    proxy: 
-        image: nginx:alpine
-        restart: unless-stopped
-        volumes: 
-            - ./nginx.conf:/nginx.conf
-        ports: 
-            - 80:80
-        environment: 
-            - NGINX_PORT = 80
+            POSTGRES_PASSWORD: exercise_2_6
+```
+
+Then the ``docker compose up`` command was run, which resulted in the following outputs:
+
+![compose-up](image/Exercise_2_6_pt1.png)
+![frontend](image/Exercise_2_6_pt2.png)

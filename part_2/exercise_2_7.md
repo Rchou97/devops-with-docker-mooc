@@ -1,3 +1,12 @@
+# Exercise 2.8
+
+## Docker Compose file
+
+We are reusing the scripts again that was constructed in part 1. In this case the images ``backend.base`` and ``frontend.base``.  
+
+In this case, we will add an additional service in the form of ``nginx`` and added the ``depends_on`` to the ``backend-base`` service. It resulted in the following:
+
+```yml
 version: '3.8'
 
 services: 
@@ -42,3 +51,11 @@ services:
             - 80:80
         environment: 
             - NGINX_PORT = 80
+```
+
+Then the ``docker compose up`` command was run, which resulted in the following outputs:
+
+![compose-up](image/Exercise_2_7_pt1.png)
+![frontend pt1](image/Exercise_2_7_pt2.png)
+![compose-down and up](image/Exercise_2_7_pt3.png)
+![frontend pt 2](image/Exercise_2_7_pt4.png)

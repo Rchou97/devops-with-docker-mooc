@@ -1,4 +1,4 @@
-# Exercise 2.3
+# Exercise 2.4
 
 ## Docker Compose file
 
