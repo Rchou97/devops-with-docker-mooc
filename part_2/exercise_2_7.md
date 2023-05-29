@@ -1,10 +1,10 @@
-# Exercise 2.8
+# Exercise 2.7
 
 ## Docker Compose file
 
 We are reusing the scripts again that was constructed in part 1. In this case the images ``backend.base`` and ``frontend.base``.  
 
-In this case, we will add an additional service in the form of ``nginx`` and added the ``depends_on`` to the ``backend-base`` service. It resulted in the following:
+In this case, we will add the volume and the ``depends_on`` to the ``backend-base`` service. It resulted in the following:
 
 ```yml
 version: '3.8'
@@ -41,21 +41,30 @@ services:
         environment: 
             POSTGRES_PASSWORD: postgres
         container_name: postgres
-    
-    proxy: 
-        image: nginx:alpine
-        restart: unless-stopped
         volumes: 
-            - ./nginx.conf:/nginx.conf
-        ports: 
-            - 80:80
-        environment: 
-            - NGINX_PORT = 80
+            - ./database:/ex27
 ```
 
 Then the ``docker compose up`` command was run, which resulted in the following outputs:
 
 ![compose-up](image/Exercise_2_7_pt1.png)
+
+A few messages have been saved, which can be seen here:
+
 ![frontend pt1](image/Exercise_2_7_pt2.png)
-![compose-down and up](image/Exercise_2_7_pt3.png)
+
+Run ``docker compose down`` and then ``docker compose up``. See if the messages are available after refreshing the browser:
+
+![compose-down](image/Exercise_2_7_pt3.png)
+
+Which is still the case:
+
 ![frontend pt 2](image/Exercise_2_7_pt4.png)
+
+Then ``docker compose down`` was run and the command ``docker volume rm ex27`` was run to remove the volume folder:
+
+![command and volume down](image/Exercise_2_7_pt5.png)
+
+Finally, ``docker compose up`` was run and a check was done if the data is gone (which was the case):
+
+![frontend pt 3](image/Exercise_2_7_pt6.png)
