@@ -1,3 +1,12 @@
+# Exercise 2.10
+
+## Docker Compose file
+Changes that are made within the ``docker-compose.yml`` file are the following:
+
+- Changing the ``REQUEST_APP_BACKEND_URL`` within ``backend`` to ``http://localhost/api``
+- Changing the ``REQUEST_ORIGIN`` within ``frontend`` to ``http://localhost``
+
+```yml
 version: "3.8"
 
 services:
@@ -31,7 +40,7 @@ services:
       POSTGRES_USER: user
       POSTGRES_PASSWORD: example
       POSTGRESS_DATABASE: db
-      REQUEST_ORIGIN: http://localhost:80
+      REQUEST_ORIGIN: http://localhost
     depends_on:
       - db
       - redis
@@ -43,9 +52,10 @@ services:
     ports:
       - 5000:5000
     environment: 
-        REACT_APP_BACKEND_URL: http://localhost:80
+        REACT_APP_BACKEND_URL: http://localhost/api
     container_name: frontend
 
   redis:
     image: redis
     container_name: redis
+```

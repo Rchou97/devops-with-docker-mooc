@@ -1,3 +1,12 @@
+# Exercise 2.9
+
+## Docker Compose file
+
+We are reusing the scripts again that was constructed in part 1 and the exercises within part 2. In this case the images ``backend.base`` and ``frontend.base``.  
+
+Changes that are made within the ``docker-compose.yml`` file are the following:
+
+```yml
 version: "3.8"
 
 services:
@@ -49,3 +58,8 @@ services:
   redis:
     image: redis
     container_name: redis
+```
+
+This resulted in the following output to work: 
+
+![frontend ex29](image/Exercise_2_9.png)
