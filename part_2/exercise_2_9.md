@@ -60,6 +60,6 @@ services:
     container_name: redis
 ```
 
-This resulted in the following output to work: 
+This resulted in the following output to work:
 
 ![frontend ex29](image/Exercise_2_9.png)
