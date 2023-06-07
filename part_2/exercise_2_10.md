@@ -1,6 +1,7 @@
 # Exercise 2.10
 
 ## Docker Compose file
+
 Changes that are made within the ``docker-compose.yml`` file are the following:
 
 - Changing the ``REQUEST_APP_BACKEND_URL`` within ``backend`` to ``http://localhost/api``
