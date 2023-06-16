@@ -6,4 +6,4 @@ The Heroku-example was used from ``devopsdockeruh/heroku-example``: [https://hub
 
 ![Commands](image/Exercise_1_16_Cloud.png)
 
-This resulted that the deployment was successful and it is now accessible via: [https://heroku-example-test-220523.herokuapp.com/presses/new]. 
+This resulted that the deployment was successful and it is now accessible via: [https://heroku-example-test-220523.herokuapp.com/presses/new].
